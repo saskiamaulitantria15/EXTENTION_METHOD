@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SESI 9 Extension Method</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  background: linear-gradient(145deg, #fff7fb 0%, #fffde8 100%);
+  color: #4b4453;
+  line-height: 1.5;
+  padding-bottom: 3rem;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: rgba(255,245,250,.95);
+  backdrop-filter: blur(4px);
+  border-bottom: 2px solid #ffd6e7;
+}
+
+header h1 {
+  font-size: 2.7rem;
+  background: linear-gradient(135deg, #ffb6d5, #ffe79a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: .5rem;
+}
+
+.subhead {
+  font-size: 1.1rem;
+  color: #8d728d;
+}
+
+.badge {
+  display: inline-block;
+  background: #ffe79a;
+  color: #7a5a00;
+  padding: .2rem .8rem;
+  border-radius: 40px;
+  font-size: .8rem;
+  margin-top: .8rem;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.card {
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(2px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 2px solid #ffd6e7;
+  transition: .2s;
+  box-shadow: 0 8px 20px rgba(255,182,213,.2);
+}
+
+.card:hover {
+  border-color: #ffb6d5;
+  box-shadow: 0 12px 28px rgba(255,182,213,.35);
+}
+
+.card h2 {
+  font-size: 1.7rem;
+  margin-bottom: .75rem;
+  color: #ff7fb3;
+  border-left: 6px solid #ffe79a;
+  padding-left: 1rem;
+}
+
+pre {
+  background: #fffdf5;
+  color: #444;
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Fira Code','Cascadia Code',monospace;
+  font-size: .85rem;
+  border: 2px solid #ffe79a;
+  margin: 1rem 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.btn-run {
+  background: #ffb6d5;
+  color: #5f4352;
+  border: none;
+  padding: .6rem 1.4rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: .9rem;
+  transition: .2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  margin-top: .5rem;
+}
+
+.btn-run:hover {
+  background: #ff9fc7;
+  transform: translateY(-2px);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 2px solid #ffd6e7;
+  color: #8d728d;
+  font-size: .85rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.75);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #fffafc;
+  width: 90%;
+  max-width: 1100px;
+  height: 85%;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ffd6e7;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid #ffe79a;
+  color: #ff7fb3;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.close {
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ff7fb3;
+}
+
+.close:hover {
+  color: #ff4f9a;
+}
+
+.modal-body {
+  flex: 1;
+  padding: .5rem;
+}
+
+.modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 1rem;
+  background: white;
+}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Extension Method</h1>
+  <p class="subhead">SESI 9 | Extension Method</p>
+  <div class="badge">👩‍💻 Saskia Mauli Tantria | 251410034 | SI2A</div>
+</header>
+
+<div class="container">
+  
+  <div class="card">
+    <h2>Review sesi 8 - Builder Pattern</h2>
+     <p>Builder Pattern adalah pola desain untuk membuat objek yang kompleks secara bertahap</p>
+<p>Menggunakan method chaining yaitu memanggil method secara berantai dalam satu baris</p>
+<p>Setiap method mengembalikan this agar bisa disambung ke method berikutnya</p>
+<p>Diakhiri dengan method build() untuk menghasilkan objek final</p>
+ </div>
+
+  <div class="card">
+    <h2> Pengertian Extension Methods</h2>
+    <p>Extension Methods adalah fitur untuk menambahkan method baru ke tipe yang sudah ada</p>
+<p>Tidak perlu mengubah atau menyentuh kode asli dari tipe tersebut</p>
+<p>Fitur ini tersedia sejak Dart versi 2.7</p>
+<p>Analoginya seperti menambah kemampuan baru ke suatu benda tanpa mengubah benda aslinya</p>
+  </div>
+
+  <div class="card">
+    <h2>Masalah tanpa Extension Method</h2>
+    <p>Sebelum adanya Extension Methods, penambahan fungsi pada tipe data biasanya dilakukan menggunakan utility class. Cara ini membuat penulisan kode terasa kurang natural karena fungsi tidak langsung menjadi bagian dari objek yang digunakan.
+       Selain itu, programmer harus mengingat banyak class tambahan sehingga kode menjadi lebih panjang, kurang praktis, dan lebih sulit dibaca.</p>
+    <pre><code>//Nama: Saskia Mauli Tantria
+//NIM: 251410034
+//Kelas: SI2A
+
+// Utility class yang kurang natural
+class StringUtils {
+  static String capitalize(String text) {
+    if (text.isEmpty) return text;
+    return text[0].toUpperCase() + text.substring(1);
+  }
+
+  static bool isEmail(String text) {
+    return text.contains('@');
+  }
+}
+
+void main() {
+  var name = 'john';
+  var capitalized = StringUtils.capitalize(name); // 'John'
+  var isEmail = StringUtils.isEmail('test@mail.com');
+
+  print('Original name: $name');
+  print('Capitalized name: $capitalized');
+  print('Is "test@mail.com" an email? $isEmail');
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=165f86ded3474f9c01dc408301fef32f&amp;run=true">Lihat Program</button>
+ </div>
+
+  <div class="card">
+    <h2> Solusi dengan Extension Method</h2>
+    <p>Ini adalah solusi dari slide sebelumnya. Dengan Extension Methods, bisa menambahkan fitur baru ke tipe String tanpa mengubah kode aslinya.</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+      
+extension StringExtensions on String {
+  String capitalize() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1);
+  }
+
+  bool get isEmail => contains('@');
+
+  String reverse() {
+    return split('').reversed.join();
+  }
+}
+
+void main() {
+  var name = 'john';
+  var capitalized = name.capitalize();
+  var isEmail = 'test@mail.com'.isEmail;
+  var reversed = 'hello'.reverse();
+
+  print('Original name: $name');
+  print('Capitalized name: $capitalized');
+  print('Is "test@mail.com" an email? $isEmail');
+  print('Reversed "hello": $reversed');
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=317725c5528f51364a85d3b71c8637b8&amp;run=true">Lihat Program</button>
+ </div>
+  
+  <div class="card">
+    <h2>Sintaks Extension Method</h2>
+    <p>Struktur dasar extension: extension NamaExtension on TipeTarget { }</p>
+<p>Di dalam extension bisa berisi 3 jenis anggota:</p>
+<p>Method → fungsi biasa yang dipanggil dengan tanda kurung ()</p>
+<p>Getter → properti yang diakses tanpa tanda kurung, menggunakan kata kunci get</p>
+<p>Operator → mendefinisikan ulang perilaku simbol seperti +, -, *</p>
+<p>Kata kunci this di dalam extension merujuk ke objek yang memanggil method tersebut</p>
+    <pre><code>// Nama: Saskia Mauli Tantria
+// NIM: 251410034
+// Kelas: SI2A
+
+extension DateTimeExtensions on DateTime {
+  // Method: format tanggal
+  String toFormattedString() {
+    return '$day/$month/$year';
+  }
+
+  // Getter: cek apakah hari ini
+  bool get isToday {
+    var now = DateTime.now();
+    return year == now.year && month == now.month && day == now.day;
+  }
+
+  // Operator: tambah durasi
+  DateTime operator +(Duration duration) {
+    return add(duration);
+  }
+}
+
+void main() {
+  var today = DateTime.now();
+  var someDay = DateTime(2020, 6, 15);
+  var future = today + Duration(days: 7);
+
+  print('Hari ini: ${today.toFormattedString()}');
+  print('Tanggal lama: ${someDay.toFormattedString()}');
+  print('Apakah today hari ini? ${today.isToday}');
+  print('Apakah someDay hari ini? ${someDay.isToday}');
+  print('7 hari ke depan: ${future.toFormattedString()}');
+}</code></pre>
+     <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=96f4bd9c2ce03b3d375c2f6db7b3c852&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2>Tipe yang bisa di-Extend</h2>
+    <p>Extension di Dart tidak terbatas hanya untuk String saja. Hampir semua tipe bisa di-extend, yaitu tipe bawaan Dart seperti String, int, double, List, Map, lalu kelas </p>
+    <p>buatan sendiri, generic types seperti List&lt;int&gt;, dan nullable types seperti String?. Ini membuat extension sangat fleksibel karena bisa disesuaikan dengan</p>
+      <p>kebutuhan tipe data apapun yang sedang digunakan.</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+extension IntListExtensions on List&lt;int&gt; {
+  int get sum => fold(0, (total, item) => total + item);
+  double get average => isEmpty ? 0 : sum / length;
+}
+
+void main() {
+  var numbers = [1, 2, 3, 4, 5];
+  print(numbers.sum);      // 15
+  print(numbers.average);  // 3.0
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=f56268c5fba76907d8c2c8cf4a7530ac&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2>Extension untuk Null Safety</h2>
+    <p>Nullable type artinya variabel bisa bernilai null</p>
+    <p>Tanpa extension, kita harus cek null secara manual setiap saat → kode jadi panjang dan berulang</p>
+    <p>Dengan extension pada String?, pengecekan null cukup dibuat sekali lalu bisa dipakai di mana saja</p>
+    <p>Method yang ditambahkan:</p>
+    <p>orEmpty() → kembalikan string kosong jika null</p>
+    <p>isNullOrEmpty → cek apakah null atau kosong</p>
+    <p>isNotNullOrEmpty → kebalikan dari isNullOrEmpty</p>
+    <p> withDefault('Guest') → kembalikan nilai cadangan jika null</p>
+    <p>Hasilnya kode lebih bersih, aman, dan mudah dibaca</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+extension NullableStringExtensions on String? {
+  String orEmpty() => this ?? '';
+  bool get isNullOrEmpty => this == null || this!.isEmpty;
+  bool get isNotNullOrEmpty => !isNullOrEmpty;
+  String withDefault(String defaultValue) => this ?? defaultValue;
+}
+
+void main() {
+  String? name;
+  print(name.orEmpty());             // ''
+  print(name.isNullOrEmpty);         // true
+  print(name.isNotNullOrEmpty);      // false
+  print(name.withDefault('Guest'));  // Guest
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=61b06e67d75d88176e40cad9d5510190&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2>Praktik 1- Utilities untuk Dart Types</h2>
+    <p>Extension dibuat pada tipe num yang mencakup int dan double</p>
+<p>toRupiah() → mengubah angka menjadi format mata uang Rupiah</p>
+<p>isBetween() → mengecek apakah angka berada dalam rentang tertentu</p>
+<p>power() → menghitung pangkat dari sebuah angka</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+extension NumberExtensions on num {
+  String toRupiah() {
+    return 'Rp${toStringAsFixed(0).replaceAllMapped(
+      RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+      (match) => '${match[1]}.',
+    )}';
+  }
+
+  bool isBetween(num min, num max) {
+    return this >= min && this <= max;
+  }
+
+  num power(int exponent) {
+    var result = this;
+    for (var i = 1; i < exponent; i++) {
+      result *= this;
+    }
+    return result;
+  }
+}
+
+void main() {
+  var price = 1500000;
+  print(price.toRupiah());        // Rp1.500.000
+  print(5.isBetween(1, 10));      // true
+  print(2.power(3));              // 8
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=7baf9369976a635c1bdbf6fa57441274&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2> Generic Extension</h2>
+    <p>Generic extension &lt;T&gt; berarti bisa dipakai untuk List tipe apapun</p>
+    <p>getOrNull() → mengambil item di index tertentu, jika tidak ada kembalikan null (aman, tidak error)</p>
+    <p>chunk() → memecah list besar menjadi beberapa list kecil dengan ukuran tertentu</p>
+    <p>distinct() → menghapus data duplikat dalam list</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+extension ListExtensions&lt;T&gt; on List&lt;T&gt; {
+  T? getOrNull(int index) {
+    if (index &lt; 0 || index >= length) return null;
+    return this[index];
+  }
+
+  List&lt;List&lt;T&gt;&gt; chunk(int size) {
+    var chunks = &lt;List&lt;T&gt;&gt;[];
+    for (var i = 0; i &lt; length; i += size) {
+      chunks.add(sublist(i, i + size > length ? length : i + size));
+    }
+    return chunks;
+  }
+
+  List&lt;T&gt; distinct() {
+    var result = &lt;T&gt;[];
+    for (var item in this) {
+      if (!result.contains(item)) {
+        result.add(item);
+      }
+    }
+    return result;
+  }
+}
+
+void main() {
+  var numbers = [1, 2, 3, 4, 5, 6, 7];
+  print(numbers.chunk(3));               // [[1,2,3],[4,5,6],[7]]
+  print([1, 2, 2, 3, 3, 3].distinct()); // [1, 2, 3]
+  print(numbers.getOrNull(10));          // null
+}</code></pre>
+  <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=9f4176711c43ee5d67b625a7636e97df&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2> Unnamed Extensions</h2>
+    <p>Extension tanpa nama dibuat dengan extension on TipeTarget tanpa menulis nama</p>
+    <p>Hanya bisa digunakan dalam file yang sama, tidak bisa di-import ke file lain</p>
+    <p>Cocok untuk helper kecil yang tidak perlu dipakai di luar file tersebut</p>
+    <p>Mencegah polusi namespace karena tidak terekspos ke luar</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+extension on DateTime {
+  String get toYYYYMMDD {
+    return '$year-${month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}';
+  }
+
+  DateTime get startOfDay {
+    return DateTime(year, month, day);
+  }
+}
+
+void main() {
+  var today = DateTime.now();
+  print(today.toYYYYMMDD);   // contoh: 2026-05-19
+  print(today.startOfDay);   // contoh: 2026-05-19 00:00:00.000
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=64a62063924701ee2a061ded77f7300b&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2>Konflik Nama Extension</h2>
+    <p>Konflik terjadi jika dua extension punya nama method yang sama untuk tipe yang sama</p>
+    <p>Memanggil langsung seperti text.capitalize() akan menyebabkan error ambiguous</p>
+    <p>Solusi 1: Gunakan explicit extension call NamaExtension(object).method()</p>
+    <P>Solusi 2: Gunakan import ... as untuk memberi prefix, atau hide untuk menyembunyikan salah satu method</P>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+extension StringCaseExtensions on String {
+  String capitalize() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1);
+  }
+}
+
+extension TextUtilsExtensions on String {
+  String capitalize() {
+    return toUpperCase(); // implementasi berbeda
+  }
+}
+
+void main() {
+  var text = 'hello';
+
+  // Panggil eksplisit untuk hindari konflik
+  print(StringCaseExtensions(text).capitalize()); // Hello
+  print(TextUtilsExtensions(text).capitalize());  // HELLO
+}</code></pre>
+      <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=ac39d2893ea9631a5732cb2f61a2f307&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2>Extension untuk Custom Classes</h2>
+    <p>Extension bisa dibuat untuk kelas buatan sendiri (custom class), bukan hanya tipe bawaan Dart</p>
+<p>Memisahkan logika tambahan dari class utama agar class tetap bersih dan sederhana</p>
+<p>withDiscount() → menambah fitur hitung diskon tanpa mengubah class Product</p>
+<p>displayInfo → getter untuk menampilkan info produk secara terformat</p>
+<p>isExpensive → getter untuk mengecek apakah produk termasuk mahal</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+class Product {
+  final String name;
+  final double price;
+  Product(this.name, this.price);
+}
+
+extension DoubleRupiahFormatter on double {
+  String toRupiah() {
+    final intValue = toInt();
+    String numberString = intValue.toString();
+    String formattedString = '';
+    int counter = 0;
+    for (int i = numberString.length - 1; i >= 0; i--) {
+      formattedString = numberString[i] + formattedString;
+      counter++;
+      if (counter % 3 == 0 && i != 0) {
+        formattedString = '.' + formattedString;
+      }
+    }
+    return 'Rp$formattedString';
+  }
+}
+
+extension ProductExtensions on Product {
+  Product withDiscount(double percentage) {
+    var discountedPrice = price * (1 - percentage / 100);
+    return Product(name, discountedPrice);
+  }
+
+  String get displayInfo => '$name - ${price.toRupiah()}';
+  bool get isExpensive => price > 1000000;
+}
+
+void main() {
+  var laptop = Product('Laptop', 15000000);
+  var discounted = laptop.withDiscount(10);
+  print(discounted.displayInfo);  // Laptop - Rp13.500.000
+  print(laptop.isExpensive);      // true
+
+  var keyboard = Product('Keyboard', 750000);
+  print(keyboard.displayInfo);    // Keyboard - Rp750.000
+  print(keyboard.isExpensive);    // false
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=de28f2cf6c30993501f0d7dcff51b9cc&amp;run=true">Lihat Program</button>
+  </div>
+
+  <div class="card">
+    <h2>Praktik 2 Validator Extensions</h2>
+    <p>Extension digunakan untuk membuat validator yang bisa langsung dipanggil dari nilai itu sendiri</p>
+<p>StringValidators menambahkan validasi pada String: cek email, nomor HP, password kuat, dan URL</p>
+<p>IntValidators menambahkan validasi pada int: cek umur dewasa, positif, genap, dan ganjil</p>
+<p>Semua validasi berbentuk getter sehingga penggunaannya simpel tanpa tanda kurung</p>
+<p>Kode validasi menjadi lebih rapi karena tidak perlu class atau fungsi terpisah</p>
+    <pre><code>//Nama: Saskia Mauli Tantria 
+//NIM: 251410034
+//Kelas: SI2A
+
+extension StringValidators on String {
+  bool get isEmail =>
+      RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(this);
+
+  bool get isPhoneNumber =>
+      RegExp(r'^[0-9]{10,13}$').hasMatch(this);
+
+  bool get isStrongPassword =>
+      length >= 8 &&
+      contains(RegExp(r'[A-Z]')) &&
+      contains(RegExp(r'[a-z]')) &&
+      contains(RegExp(r'[0-9]'));
+
+  bool get isUrl {
+    try {
+      Uri.parse(this);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+}
+
+extension IntValidators on int {
+  bool get isAdultAge => this >= 18;
+  bool get isPositive => this > 0;
+  bool get isEven => this % 2 == 0;
+  bool get isOdd => this % 2 != 0;
+}
+
+void main() {
+  var email = 'test@example.com';
+  var age = 25;
+  var password = 'Pass1234';
+
+  print(email.isEmail);             // true
+  print(age.isAdultAge);            // true
+  print(password.isStrongPassword); // true
+  print(10.isEven);                 // true
+}</code></pre>
+    <button class="btn-run" data-src="https://dartpad.dev/embed-dart.html?id=2c5794c782948a95e3b800df9f058557&amp;run=true">Lihat Program</button>
+  </div>
+
+  <!-- KESIMPULAN -->
+  <div class="card">
+    <h2>Kesimpulan Poin Penting</h2>
+    <p><strong>Ringkasan</strong>
+<p>- Extension methods digunakan untuk menambah method ke tipe yang sudah ada tanpa mengubah kode aslinya</p>
+<p>- Sintaks dasarnya: `extension Name on Type { }`</p>
+<p>- Di dalamnya bisa berisi method, getter, setter, dan operator</p>
+<p>- Bisa digunakan untuk generic types seperti `List&lt;T&gt;`
+
+<p><strong>Best Practices</strong></p>
+<p>- Nama jelas → beri nama extension yang deskriptif seperti `StringExtensions` atau `DateTimeUtils`</p>
+<p>- Group by type → satu file khusus untuk satu tipe, agar kode lebih terorganisir</p>
+<p>- Avoid overuse → tidak semua fungsi perlu dijadikan extension, gunakan seperlunya</p>
+<p>- Null safety → tangani nullable types dengan baik agar kode aman dari error null</p>
+<p>- Dokumentasi → tambahkan komentar pada extension yang bersifat publik agar mudah dipahami orang lain</p>
+</div>
+
+<footer>
+  <p>📁 Resume Sesi 9 – Extension Method | Kode siap eksekusi di DartPad | Dibuat untuk GitHub Pages</p>
+  <p>Saskia Mauli Tantria — 251410034 — SI2A</p>
+</footer>
+
+<div id="codeModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">DartPad Runner</h3>
+      <span class="close" id="closeModalBtn">&times;</span>
+    </div>
+    <div class="modal-body">
+      <iframe id="dartpadIframe" title="DartPad" src="about:blank"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('codeModal');
+  const modalIframe = document.getElementById('dartpadIframe');
+  const closeBtn = document.getElementById('closeModalBtn');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.querySelector('.modal-body');
+
+  function openDartPad(embedUrl, programTitle) {
+    while (modalBody.firstChild) {
+      modalBody.removeChild(modalBody.firstChild);
+    }
+    modalIframe.style.display = 'block';
+    modalBody.appendChild(modalIframe);
+    modalIframe.src = embedUrl;
+    modalTitle.innerText = programTitle;
+    modal.style.display = 'flex';
+  }
+
+  window.openImage = function(imgUrl) {
+    while (modalBody.firstChild) {
+      modalBody.removeChild(modalBody.firstChild);
+    }
+    modalIframe.style.display = 'none';
+    const img = document.createElement('img');
+    img.src = imgUrl;
+    img.alt = 'Capture Gambar';
+    img.style.maxWidth = '100%';
+    img.style.maxHeight = '70vh';
+    img.style.width = 'auto';
+    img.style.height = 'auto';
+    img.style.display = 'block';
+    img.style.margin = 'auto';
+    img.style.borderRadius = '12px';
+    img.style.boxShadow = '0 0 20px rgba(0,0,0,0.5)';
+    img.style.objectFit = 'contain';
+    img.onerror = () => {
+      img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2"%3E%3Crect x="2" y="2" width="20" height="20" rx="2" /%3E%3Cpath d="M8 8 L16 16 M16 8 L8 16" /%3E%3Ctext x="12" y="20" font-size="8" text-anchor="middle" fill="red"%3EGagal load%3C/text%3E%3C/svg%3E';
+      img.style.width = '150px';
+      img.style.height = 'auto';
+    };
+    modalBody.appendChild(img);
+    modalTitle.innerText = '📸 Capture Gambar';
+    modal.style.display = 'flex';
+  };
+
+  document.querySelectorAll('.btn-run').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const src = btn.getAttribute('data-src');
+      if (src) {
+        e.preventDefault();
+        const card = btn.closest('.card');
+        const programName = card?.querySelector('h2')?.innerText || 'Program Dart';
+        openDartPad(src, programName);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    modalIframe.src = 'about:blank';
+    while (modalBody.firstChild) {
+      modalBody.removeChild(modalBody.firstChild);
+    }
+    modalIframe.style.display = 'block';
+    modalBody.appendChild(modalIframe);
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      modalIframe.src = 'about:blank';
+      while (modalBody.firstChild) {
+        modalBody.removeChild(modalBody.firstChild);
+      }
+      modalIframe.style.display = 'block';
+      modalBody.appendChild(modalIframe);
+    }
+  });
+</script>
+</body>
+</html>
